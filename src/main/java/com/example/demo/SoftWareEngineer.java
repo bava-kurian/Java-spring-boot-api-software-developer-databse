@@ -1,18 +1,21 @@
 package com.example.demo;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.Objects;
 import java.util.UUID;
 @Entity
 public class SoftWareEngineer {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private UUID id;
+    private Integer id;
     private String name;
     private String techStack;
 
-    public SoftWareEngineer(UUID id,
+    public SoftWareEngineer(Integer id,
                             String name,
                             String techStack) {
         this.id = id;
@@ -24,11 +27,11 @@ public class SoftWareEngineer {
 
     }
 
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
