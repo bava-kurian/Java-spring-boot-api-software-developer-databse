@@ -1,8 +1,6 @@
 package com.example.demo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,6 +15,16 @@ public class SoftwareEngineerController {
     @GetMapping()
     public List<SoftWareEngineer>getEngineers(){
         return softwareEngineerService.getAllEngineers();
+    }
+
+    @GetMapping("{id}")
+    public SoftWareEngineer getEngineersById(@PathVariable Integer id){
+        return softwareEngineerService.getEngineersById(id);
+    }
+
+    @PostMapping
+    public void addEngineer(@RequestBody SoftWareEngineer softWareEngineer){
+        softwareEngineerService.insertSoftwareEngineer(softWareEngineer);
     }
 
 }
